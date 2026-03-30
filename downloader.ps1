@@ -18,5 +18,11 @@ choco install tor-browser
 choco install joplin
 choco install qbittorrent
 choco install sumatrapdf
+choco install processhacker
+choco install jdownloader
+choco install 7zip
+choco install thunderbird
+choco install vlc
+choc install imageglass
 
 choco feature disable -n allowGlobalConfirmation
