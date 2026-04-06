@@ -15,6 +15,7 @@ if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
 
     # Install Choco <3
     Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+    refreshenv # Refreshes the environment to make choco available
 }
 
 choco feature enable -n allowGlobalConfirmation
@@ -54,6 +55,7 @@ if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
 
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
     Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+    refreshenv
 }
 
 scoop install restic
