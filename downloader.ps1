@@ -64,6 +64,7 @@ if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
 }
 
 scoop bucket add main 2>$null # 2>$null suppresses "already exists" error
+scoop bucket add extra 2>$null
 
 scoop install restic
 scoop install rclone
