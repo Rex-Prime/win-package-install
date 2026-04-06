@@ -38,15 +38,6 @@ iex "& { $(iwr -useb 'https://raw.githubusercontent.com/SpotX-Official/SpotX/ref
 
 choco feature disable -n allowGlobalConfirmation
 
-
-# Winget
-
-if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
-    Write-Host "winget not available, skipping..." -ForegroundColor Yellow
-} else {
-    winget install ludusavi
-}
-
 # Scoop
 
 if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
@@ -61,3 +52,13 @@ if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
 scoop install restic
 scoop install rclone
 scoop install yt-dlp
+
+# Winget
+
+if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
+    Write-Host "winget not available, skipping..." -ForegroundColor Yellow
+} else {
+    winget install ludusavi
+}
+
+
