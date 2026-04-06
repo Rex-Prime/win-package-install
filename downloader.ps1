@@ -25,6 +25,6 @@ choco install vlc
 choc install imageglass
 
 choco install spotify
-iex "& { $(iwr -useb 'https://raw.githubusercontent.com/SpotX-Official/SpotX/refs/heads/main/run.ps1') } -confirm_uninstall_ms_spoti -confirm_spoti_recomended_over -podcasts_off -block_update_on -new_theme -adsections_off -no_shortcut -lyrics_stat Spotify"
+iex "& { $(iwr -useb 'https://raw.githubusercontent.com/SpotX-Official/SpotX/refs/heads/main/run.ps1') } -confirm_uninstall_ms_spoti -confirm_spoti_recomended_over -DisableStartup -podcasts_off -block_update_on -new_theme -adsections_off -no_shortcut -lyrics_stat Spotify"
 
 choco feature disable -n allowGlobalConfirmation
