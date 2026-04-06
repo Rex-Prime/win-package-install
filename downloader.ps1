@@ -47,6 +47,13 @@ if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
     Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
     refreshenv
+
+    # Verify installation
+    if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
+        Write-Host "ERROR: Failed to install Scoop" -ForegroundColor Red
+        exit 1
+    }
+    Write-Host "Scoop installed successfully!" -ForegroundColor Green
 }
 
 scoop install restic
