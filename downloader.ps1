@@ -35,4 +35,8 @@ iex "& { $(iwr -useb 'https://raw.githubusercontent.com/SpotX-Official/SpotX/ref
 
 choco feature disable -n allowGlobalConfirmation
 
-winget install ludusavi
+if (Get-Command winget -ErrorAction SilentlyContinue) {
+    winget install ludusavi
+} else {
+    Write-Host "winget not available, skipping..." -ForegroundColor Yellow
+}
