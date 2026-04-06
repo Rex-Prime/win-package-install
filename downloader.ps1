@@ -68,6 +68,7 @@ scoop bucket add main 2>$null # 2>$null suppresses "already exists" error
 scoop install restic
 scoop install rclone
 scoop install yt-dlp
+scoop install neovim
 
 # Winget
 
