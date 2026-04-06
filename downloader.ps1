@@ -16,6 +16,13 @@ if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
     # Install Choco <3
     Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
     refreshenv # Refreshes the environment to make choco available
+
+    # Verify Install
+    if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
+        Write-Host "ERROR: Failed to install Chocolatey" -ForegroundColor Red
+        exit 1
+    }
+    Write-Host "Chocolatey installed successfully!" -ForegroundColor Green
 }
 
 choco feature enable -n allowGlobalConfirmation
