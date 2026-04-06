@@ -45,3 +45,17 @@ if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
 } else {
     winget install ludusavi
 }
+
+# Scoop
+
+if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
+    Write-Host "Scoop is not installed" -ForegroundColor Yellow
+    Write-Host "Installing Scoop..." -ForegroundColor Green
+
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+    Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+}
+
+scoop install restic
+scoop install rclone
+scoop install yt-dlp
