@@ -40,8 +40,8 @@ choco feature disable -n allowGlobalConfirmation
 
 # Winget
 
-if (Get-Command winget -ErrorAction SilentlyContinue) {
-    winget install ludusavi
-} else {
+if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
     Write-Host "winget not available, skipping..." -ForegroundColor Yellow
+} else {
+    winget install ludusavi
 }
